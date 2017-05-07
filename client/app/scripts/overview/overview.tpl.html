@@ -1,0 +1,89 @@
+<div>
+    <div class="row" ng-show="vm.showMap">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Overzichtskaart </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                            <ng-map id="overviewMap" class="overview-map"></ng-map>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="height:10px;"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label>
+                                    <input type="checkbox" ng-model="vm.centerMapOnBus" ng-change="vm.changeCenterOnBus()">
+                                    &nbsp;Centreer voertuig altijd</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <button class="btn btn-primary" ng-click="vm.doCenterOnBus()">Centreer voertuig nu</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Routeschema</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="selectBus">Selecteer voertuig:</label>
+                                <select class="form-control" id="selectBus" ng-model="vm.selectedJourneyNumber" ng-options="bus.JourneyNumber as vm.busLabel(bus) for bus in vm.allBuses" ng-change="vm.getJourney(vm.selectedJourneyNumber)">
+                                    <option value="{}">Selecteer een waarde</option>
+                                    <!--<option ng-repeat="bus in vm.allBuses" value="{{bus.JourneyPatternCode}}" >{{bus.LineName}}</option>-->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="timetable" id="timetable">
+                            <table class="table" ng-show="vm.selectedJourneyNumber">
+                                <tr>
+                                    <th class="small">#</th>
+                                    <th class="small">Naam</th>
+                                    <th class="small">Tijd</th>
+                                </tr>
+                                <tr ng-repeat="busstop in vm.selectedJourney track by $index" ng-class="{success:busstop.TargetArrivalTime}" id="anchor{{busstop.UserStopOrderNumber}}">
+                                    <td ng-class="{small:!busstop.TargetArrivalTime}">{{busstop.UserStopOrderNumber}}</td>
+                                    <td ng-class="{small:!busstop.TargetArrivalTime}">{{busstop.TimingPointName}}</td>
+                                    <td ng-class="{small:!busstop.TargetArrivalTime}">{{busstop.TargetArrivalTime}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-hide="vm.showMap">
+        <div class="alert alert-danger">
+            <strong>
+                Helaas
+            </strong>
+            <br/>
+            Geen actuele voertuigen gevonden op dit moment. Probeer het later nog eens of kies een ander vervoermiddel.
+            <br/><br/>
+            <button class="btn btn-primary" ng-click="vm.goToKiesBus()">Kies een ander vervoermiddel</button>
+        </div>
+
+    </div>
+    <!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+    <!--<uib-progressbar value="vm.timerValue" max="vm.intervalValue"></uib-progressbar>-->
+    <!--</div>-->
+    <!--</div>-->
+</div>

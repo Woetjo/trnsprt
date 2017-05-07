@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <link href='node_modules/bootstrap/dist/css/bootstrap.css' rel='stylesheet' type='text/css'>
+    <link href='node_modules/toastr/build/toastr.min.css' rel='stylesheet' type='text/css'>
+    <link href='styles/font-awesome.css' rel='stylesheet' type='text/css'>
+    <link href='styles/styles.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-app="busMap">
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container" ng-controller="menuController as vm">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">th3TransportApp</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li ng-class="{active: vm.activeRoute() == '/kies'}"><a href="#/kies">Kies vervoermiddel</a></li>
+                <li ng-class="{active: vm.activeRoute() == '/overview'}"><a href="#/overview">Kaart</a></li>
+             </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<div class="container" ng-view=""></div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHNRm9a5pfI21nDiy0b1YZdCbRdfsDZQA"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="node_modules/jquery.scrollto/jquery.scrollTo.min.js"></script>
+<script src="node_modules/jquery.easing/jquery.easing.min.js"></script>
+<script src="node_modules/marker-animate/markerAnimate.js"></script>
+<script src="node_modules/marker-animate-unobtrusive/dist/SlidingMarker.min.js"></script>
+<script>
+    SlidingMarker.initializeGlobally();
+</script>
+
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-route/angular-route.js"></script>
+<script src="node_modules/angular-resource/angular-resource.js"></script>
+<script src="node_modules/ngmap/build/scripts/ng-map.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/toastr/build/toastr.min.js"></script>
+<script src="node_modules/lodash/lodash.min.js"></script>
+<script src="node_modules/moment/min/moment-with-locales.min.js"></script>
+<script src="node_modules/angular-bootstrap-npm/dist/angular-bootstrap.min.js"></script>
+
+<script type="text/javascript" src="scripts/core/core.module.js"></script>
+<script type="text/javascript" src="scripts/core/message.service.js"></script>
+<script type="text/javascript" src="scripts/menu/menu.module.js"></script>
+<script type="text/javascript" src="scripts/menu/menuController.js"></script>
+<script type="text/javascript" src="scripts/backend/backend.module.js"></script>
+<script type="text/javascript" src="scripts/backend/busService.js"></script>
+<script type="text/javascript" src="scripts/backend/tpcService.js"></script>
+<script type="text/javascript" src="scripts/backend/lijnService.js"></script>
+<script type="text/javascript" src="scripts/overview/overview.module.js"></script>
+<script type="text/javascript" src="scripts/kiesBus/kiesbus.module.js"></script>
+<script type="text/javascript" src="scripts/overview/overviewController.js"></script>
+<script type="text/javascript" src="scripts/kiesBus/kiesbusController.js"></script>
+<script type="text/javascript" src="scripts/thirdparty/thirdparty.module.js"></script>
+<script type="text/javascript" src="scripts/thirdparty/lodash.service.js"></script>
+<script type="text/javascript" src="scripts/thirdparty/moment.service.js"></script>
+<script type="text/javascript" src="scripts/app.module.js"></script>
+<script type="text/javascript" src="scripts/app.config.js"></script>
+<script type="text/javascript" src="scripts/app.routes.js"></script>
+
+</body>
+
+</html>

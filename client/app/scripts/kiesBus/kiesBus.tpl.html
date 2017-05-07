@@ -1,0 +1,41 @@
+<div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Kies vervoermiddel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <div class="form-group">
+                                    <label for="selectBus">Kies vervoerder:</label>
+                                    <select class="form-control" id="selectVervoerder" ng-model="vm.selectedVervoerder" ng-options="key as key for (key, value) in vm.allCompanies" ng-change="vm.kiesVervoerder(vm.selectedVervoerder)">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <div class="form-group">
+                                    <label for="selectBus">Kies lijn:</label>
+                                    <select ng-disabled="!vm.selectedVervoerder" class="form-control" id="selectBus" ng-model="vm.selectedLine" ng-options="line.id as vm.lineLabel(line) for line in vm.allLines" ng-change="vm.kiesLijn(vm.selectedLine)">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<ul>-->
+                        <!--<li ng-repeat="bus in vm.alleBussen">-->
+                        <!--Lijn {{bus.LinePublicNumber}} {{bus.LineName}} naar {{bus.DestinationName50}} ({{bus.id}})-->
+                        <!--</li>-->
+                        <!--</ul>-->
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
