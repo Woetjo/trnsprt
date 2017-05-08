@@ -10,11 +10,11 @@
 				lat: 53.2236971,
 				lng: 6.5518852
 			},
-			busIcon: '/images/bus2.png',
-			boatIcon: '/images/boat.png',
-			metroIcon: '/images/metro.png',
-			tramIcon: '/images/tram.png',
-			busStopIcon: '/images/bus-stop.png'
+			busIcon: 'images/bus2.png',
+			boatIcon: 'images/boat.png',
+			metroIcon: 'images/metro.png',
+			tramIcon: 'images/tram.png',
+			busStopIcon: 'images/bus-stop.png'
 		})
 
 	.config(configure);
